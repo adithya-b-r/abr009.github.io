@@ -1,0 +1,73 @@
+<html>
+<head>
+  <title> CANVAS FACE </title>
+</head>
+<body>
+  <canvas id="canvas" width="300" height="300"></canvas>
+  <br>
+  <button id="toggle-button"> <b> Toggle Face </b></button>
+  <script type="text/javascript">
+    const c = document.getElementById('canvas');
+    const ctx = c.getContext("2d");
+    function drawAll() {
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 5;
+      ctx.beginPath();
+      ctx.fillStyle = "blue";
+      ctx.moveTo(50, 20);
+      ctx.arcTo(280, 20, 280, 280, 30);
+      ctx.arcTo(280, 280, 20, 280, 30);
+      ctx.arcTo(20, 280, 20, 20, 30);
+      ctx.arcTo(20, 20, 280, 20, 30);
+      ctx.stroke();
+      ctx.fill();
+      ctx.beginPath();
+      ctx.fillStyle = "yellow";
+      ctx.arc(150, 150, 100, 0, Math.PI * 2, true);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(80, 110);
+      ctx.bezierCurveTo(95, 85, 115, 85, 130, 110);
+      ctx.moveTo(170, 110);
+      ctx.bezierCurveTo(185, 85, 205, 85, 220, 110);
+      ctx.stroke();
+      ctx.moveTo(155, 130);
+      ctx.quadraticCurveTo(130, 145, 155, 155);
+      ctx.stroke();
+    }
+
+    function drawSmile() {
+      ctx.moveTo(100, 175);
+      ctx.quadraticCurveTo(150, 250, 200, 175);
+      ctx.moveTo(50, 20);
+      ctx.stroke();
+    }
+
+    function drawSad() {
+      ctx.moveTo(100, 200);
+      ctx.quadraticCurveTo(150, 150, 200, 200);
+      ctx.moveTo(50, 170);
+      ctx.stroke();
+    }
+
+    drawAll();
+    drawSmile();
+
+    button = document.getElementById('toggle-button');
+    isSmiling = true;
+    button.addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      if (isSmiling) {
+        drawAll();
+        drawSad();
+        isSmiling = false;
+      }
+      else {
+        drawAll();
+        drawSmile();
+        isSmiling = true;
+      }
+    });
+  </script>
+</body>
+</html>
