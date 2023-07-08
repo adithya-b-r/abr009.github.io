@@ -1,0 +1,106 @@
+<html>
+<head>
+    <title> Clock using canvas animation </title>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400"> The current time </canvas>
+    <script>
+        function clock() {
+            const now = new Date();
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+            ctx.save();
+            ctx.clearRect(0, 0, 400, 400);
+            ctx.translate(200, 200);
+            ctx.rotate(-Math.PI / 2);
+            ctx.strokeStyle = "black";
+            ctx.fillStyle = "white";
+
+            //Hours mark
+            ctx.lineWidth = 8;
+            ctx.lineCap = "round";
+            ctx.save();
+
+            for (let i = 0; i < 12; i++) {
+                ctx.beginPath();
+                ctx.rotate(Math.PI / 6);
+                ctx.moveTo(100, 0);
+                ctx.lineTo(120, 0);
+                ctx.stroke();
+            }
+            ctx.restore();
+
+            //Minutes mark
+            ctx.save();
+            ctx.lineWidth = 5;
+
+            for (let i = 0; i < 60; i++) {
+                if (i % 5 !== 0) {
+                    ctx.beginPath();
+                    ctx.moveTo(117, 0);
+                    ctx.lineTo(120, 0);
+                    ctx.stroke();
+                }
+                ctx.rotate(Math.PI / 30);
+            }
+            ctx.restore();
+
+            //Get Seconds, Minutes & Hour
+            const sec = now.getSeconds();
+            const min = now.getMinutes();
+            const hr = now.getHours() % 12;
+            ctx.fillStyle = "black";
+
+            //Hour
+            ctx.save();
+
+         ctx.rotate((Math.PI / 6) * hr + (Math.PI / 360) * min + (Math.PI / 21600) * sec);
+            ctx.lineWidth = 14;
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(80, 0);
+            ctx.stroke();
+            ctx.restore();
+
+            //Minute
+            ctx.save();
+            ctx.rotate((Math.PI / 30) * min + (Math.PI / 1800) * sec);
+            ctx.lineWidth = 10;
+            ctx.beginPath();
+            ctx.moveTo(-30, 0);
+            ctx.lineTo(110, 0);
+            ctx.stroke();
+            ctx.restore();
+
+            //Seconds
+            ctx.save();
+            ctx.rotate((Math.PI * sec) / 30);
+            ctx.strokeStyle = "red";
+            ctx.fillStyle = "red";
+            ctx.lineWidth = 6;
+            ctx.beginPath();
+            ctx.moveTo(-30, 0);
+            ctx.lineTo(80, 0);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(0, 0, 10, 0, Math.PI * 2, true);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(95, 0, 10, 0, Math.PI * 2, true);
+            ctx.stroke();
+            ctx.fillStyle = "transparent";
+
+            ctx.fill();
+            ctx.restore();
+            ctx.beginPath();
+            ctx.lineWidth = 14;
+            ctx.strokeStyle = "#325FA2"; //Alternative darkblue
+            ctx.arc(0, 0, 142, 0, Math.PI * 2, true);
+            ctx.stroke();
+            ctx.restore();
+            window.requestAnimationFrame(clock);
+        }
+        window.requestAnimationFrame(clock);
+    </script>
+</body>
+</html>
