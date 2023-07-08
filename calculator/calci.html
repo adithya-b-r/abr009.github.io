@@ -1,0 +1,41 @@
+<html>
+<head>
+    <link rel="stylesheet" href="calcistyle.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="3"> <input class="display-box" id="result" disabled></td>
+            <td> <input type="button" value="C" onclick="ClearScreen()" id="btn"></td>
+        </tr>
+
+       <tr>
+            <td> <input type="button" value="1" onclick="display(value)" /> </td>
+            <td> <input type="button" value="2" onclick="display(value)" /> </td>
+            <td> <input type="button" value="3" onclick="display(value)" /> </td>
+            <td> <input type="button" value="/" onclick="display(value)" /> </td>
+        </tr>
+
+        <tr>
+            <td> <input type="button" value="4" onclick="display(value)" /> </td>
+            <td> <input type="button" value="5" onclick="display(value)" /> </td>
+            <td> <input type="button" value="6" onclick="display(value)" /> </td>
+            <td> <input type="button" value="-" onclick="display(value)" /> </td>
+        </tr>
+
+        <tr>
+            <td> <input type="button" value="7" onclick="display(value)" /> </td>
+            <td> <input type="button" value="8" onclick="display(value)" /> </td>
+            <td> <input type="button" value="9" onclick="display(value)" /> </td>
+            <td> <input type="button" value="+" onclick="display(value)" /> </td>
+        </tr>
+
+        <tr>
+            <td> <input type="button" value="." onclick="displaydot()" /> </td>
+            <td> <input type="button" value="0" onclick="display(value)" /> </td>
+            <td> <input type="button" value="=" onclick="calculate()" id="btn" /> </td>
+            <td> <input type="button" value="*" onclick="display(value)" /> </td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="calciscript.js"></script>
+</body></html>
