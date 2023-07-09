@@ -1,0 +1,35 @@
+h1 {
+	color: green;
+	background: georgian;
+	background: linear-gradient(to right, lightblue, yellow, green);
+}
+
+.container {
+	height: 100%;
+	display: flex;
+}
+
+#toolbar {
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+	width: 15%;
+	background-color: #AB0045;
+	color: yellow;
+}
+
+#toolbar label {
+	font-size: 30px;
+}
+
+#toolbar input {
+	width: 94%;
+}
+
+#toolbar button {
+	padding: 2px;
+	color: white;
+	border-radius: 10px;
+	font-size: 25px;
+	background-color: blue;
+}
