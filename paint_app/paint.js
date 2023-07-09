@@ -29,13 +29,13 @@ const draw = e => {
 	ctx.stroke();
 }}
 
-canvas.addEventListener('mousedown', e => {
+canvas.addEventListener('mousedown touchstart', e => {
 	isPainting = true;
 });
 
-canvas.addEventListener('mouseup', e => {
+canvas.addEventListener('mouseup touchend', e => {
 	isPainting = false;
 	ctx.beginPath();
 });
 
-canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mousemove touchmove', draw);
