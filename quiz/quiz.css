@@ -1,0 +1,61 @@
+body {
+	background-image:linear-gradient(to right, gold, darksalmon);
+	font-family : arial black;
+	background-color : white;
+	display : flex;
+	justify-content : center;
+	height : 100vh;
+	align-items : center;
+	margin : 0;
+}
+
+.quiz-container {
+	overflow : hidden;
+	background-color : white;
+	border-radius : 10px;
+	width : 600px;
+}
+
+.quiz-header {
+	padding : 30px;
+}
+
+ul {
+	list-style-type : none;
+	color : green;
+}
+
+ul li {
+	font-size : 1.2em;
+	margin : 1em 0;
+}
+ul li label {
+	cursor : pointer;
+}
+
+button {
+	background-color : purple;
+	color : white;
+	border : none;
+	display : block;
+	width : 100%;
+	cursor : pointer;
+	font-size : 2em;
+	font-family :inherit;
+	padding : 5px;
+}
+
+button:hover {
+	background-color : blue;
+}
+
+button:active {
+	outline : none;
+	box-shadow : 0 10px gray;
+	background-color : green;
+	transform : translateY(8px);
+}
+
+h2 {
+	padding : 1em;	
+}
